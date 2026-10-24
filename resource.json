@@ -46,6 +46,10 @@
       "evidence_status": "primary page read; exact feature parity not fully executed"
     },
     {
+      "name": "OpenAPI Specification",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "capability": "Established API request/response contract specification; defines the task, not an executable diff tool",
+      "burden": "Use a full specification validator for unsupported schemas; this resource supports a declared subset",
       "evidence_status": "primary page read; exact feature parity not fully executed"
     },
     {
@@ -62,18 +66,22 @@
       "Korean"
     ],
     "queries": [
-      "API contract diff",
-      "api contract diff",
-      "API 입력·출력 계약의 변경을 방향별로 판단하고 지원하지 않는 문법을 보류한다.",
-      "oasdiff",
-      "openapi"
+      "OpenAPI breaking change enum required request response oasdiff"
     ],
     "scope": "Primary documentation and repository descriptions were read on the public web. Competitor code, plugins and packaged execution were not exhaustively tested. This is a bounded prior-art review, not a worldwide novelty search.",
     "limitations": [
       "Search results and documentation do not establish universal absence.",
       "Competitor configuration/plugin parity is not exhausted.",
       "No independent end-user interview or deployment evidence."
-    ]
+    ],
+    "proposed_queries": [
+      "API contract diff",
+      "api contract diff",
+      "API 입력·출력 계약의 변경을 방향별로 판단하고 지원하지 않는 문법을 보류한다.",
+      "oasdiff",
+      "openapi"
+    ],
+    "query_scope": "One actual bilingual search per resource, grouped in shared cached batches; additional suggested terms are explicitly proposed, not executed."
   },
   "checked_at": "2026-10-24",
   "distinctive_capability": "Request/response variance for explicit endpoint schemas; unsupported composition is surfaced. An offline executable can be called by a small model and checked against an explicit task contract.",
@@ -99,7 +107,8 @@
   "validation_results": {
     "worked_cases": 1,
     "evaluation_cases": 1,
-    "root_required_field_rejection": true
+    "root_required_field_rejection": true,
+    "fixture_role": "Development regression fixtures; not an untouched final model evaluation set."
   },
   "external_impact_evidence": [],
   "decision": {

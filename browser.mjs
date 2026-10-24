@@ -545,6 +545,24 @@ function run(input) {
     after = obj(input.after),
     findings = [],
     unsupported = [];
+  const supported = new Set(["type","enum","required","properties","items","minimum","maximum","minLength","maxLength","minItems","maxItems","additionalProperties","description","title","default","examples"]);
+  const inspect = (schema,path,depth=0) => {
+    requireThat(depth <= 20, "Schema nesting exceeds bound");obj(schema);
+    if (Object.keys(schema).some(key=>!supported.has(key))) unsupported.push(path);
+    if (schema.type !== undefined && !["string","number","integer","boolean","object","array","null"].includes(schema.type)) unsupported.push(path);
+    if (schema.enum !== undefined) {
+      requireThat(Array.isArray(schema.enum) && schema.enum.length > 0, "Enum must be a nonempty array");
+      if (schema.enum.some(value=>value!==null && typeof value === "object")) unsupported.push(path);
+    }
+    if (schema.required !== undefined) requireThat(Array.isArray(schema.required) && schema.required.every(name=>typeof name === "string"), "Required must contain property names");
+    if (schema.additionalProperties !== undefined && typeof schema.additionalProperties !== "boolean") unsupported.push(path);
+    for (const key of ["minimum","maximum","minLength","maxLength","minItems","maxItems"]) if (schema[key] !== undefined) requireThat(Number.isFinite(schema[key]), "Schema bounds must be finite");
+    if (schema.properties !== undefined) for (const [name,child] of Object.entries(obj(schema.properties))) inspect(child,path+"."+name,depth+1);
+    if (schema.items !== undefined) inspect(schema.items,path+"[]",depth+1);
+  };
+  for (const routes of [before,after]) for (const [route,contract] of Object.entries(routes)) {
+    obj(contract);for (const direction of ["request","response"]) if (contract[direction] !== undefined) inspect(contract[direction],route+"."+direction);
+  }
   const compare = (a, b, path, direction) => {
     for (const schema of [a, b])
       if (
@@ -633,7 +651,7 @@ function run(input) {
     }
   };
   for (const [route, old] of Object.entries(before)) {
-    if (!after[route]) {
+    if (!Object.hasOwn(after,route)) {
       findings.push({ path: route, code: "ENDPOINT_REMOVED", breaking: true });
       continue;
     }
