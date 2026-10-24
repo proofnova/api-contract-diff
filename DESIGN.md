@@ -1,5 +1,5 @@
-# Design record
+# Shared Proofnova design
 
-2026-10-24. References actually visited: [Channel Talk](https://channel.io/kr), [Toss](https://toss.im/), [flex](https://flex.team/). Observed principles: spacious Korean headlines, restrained navigation, product demonstrations, clear action hierarchy. No third-party logo, asset, copy or customer metric is reproduced.
+Latest user instruction, 2026-10-24: unify with [Review Evidence Lab](https://proofnova.github.io/review-evidence-lab/). This supersedes the earlier request for different visual compositions.
 
-This repository: **split / variation 2**, palette #7b4dce. Domain-specific worked-result visualization, live Worker workspace and authored Korean headline. Layout composition and section order vary across the collection; visual identity is separate from the root showcase.
+Paper #f7f6ef, ink #162b2a, green #19594d, thin borders, 12px panels, editorial headings, numbered Explore / Inspect / Understand workspace. Domain-specific cases, calculations and recovery remain independent. Reference site unchanged.
