@@ -1,5 +1,7 @@
-# Shared Proofnova design
+# Proofnova white and blue design
 
-Latest user instruction, 2026-10-24: unify with [Review Evidence Lab](https://proofnova.github.io/review-evidence-lab/). This supersedes the earlier request for different visual compositions.
+The user's latest correction on 2026-10-24 identifies attachment 27654.jpg as the authoritative visual reference: the original Proofnova showcase, recovered from commit a717a380dd0835069332d683bf954ef63ddee0bb. White background, navy typography, blue #3567ee accent, generous whitespace, large Korean headings, rounded blue calls to action and soft floating cards.
 
-Paper #f7f6ef, ink #162b2a, green #19594d, thin borders, 12px panels, editorial headings, numbered Explore / Inspect / Understand workspace. Domain-specific cases, calculations and recovery remain independent. Reference site unchanged.
+The prior interpretation of the Review Evidence Lab URL as a green/paper theme was incorrect and is superseded. Do not regenerate that green theme for these resources. Keep the original Review Evidence Lab project unchanged.
+
+All thirty tools share this visual language, while their task logic, inputs, examples, checks and recovery remain independent. Portfolio resources remain excluded; the attachment is a design reference only.
